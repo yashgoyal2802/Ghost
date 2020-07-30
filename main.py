@@ -39,3 +39,21 @@ def wishme():
     else:
         speak("Good Night Sir!")
     speak("This is GHOST, How may I help you ?")
+
+
+def takeCommand():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print("Recognising...")
+        query = r.recognize_google(audio, language="en-in")
+        print(query)
+    except Exception as e:
+        print(e)
+        speak("Say that Agai please")
+        return "None"
+    return query
