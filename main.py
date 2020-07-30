@@ -20,7 +20,7 @@ def date():
     year = int(datetime.now().year)
     month = int(datetime.now().month)
     date = int(datetime.now().day)
-    speak("and today is")
+    speak("Today is")
     speak(date)
     speak(month)
     speak(year)
@@ -67,3 +67,9 @@ if __name__ == "__main__":
 
         if 'time' in query:
             time()
+
+        elif 'date' in query:
+            date()
+
+        elif 'offline' in query:
+            quit()
