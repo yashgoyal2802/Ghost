@@ -72,5 +72,12 @@ if __name__ == "__main__":
         elif 'date' in query:
             date()
 
+        elif 'wikipedia' in query:
+            speak("Searching Sir...")
+            query = query.replace("wikipedia", "")
+            result = wikipedia.summary(query, sentences=2)
+            print(result)
+            speak(result)
+
         elif 'offline' in query:
             quit()
