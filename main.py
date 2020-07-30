@@ -2,6 +2,7 @@ import pyttsx3
 from datetime import datetime
 import speech_recognition as sr
 import wikipedia
+import smtplib
 
 engine = pyttsx3.init()
 
