@@ -12,6 +12,7 @@ def speak(audio):
 
 def time():
     now = datetime.now().strftime("%I:%M:%S")
+    speak("Its")
     speak(now)
 
 
@@ -19,6 +20,7 @@ def date():
     year = int(datetime.now().year)
     month = int(datetime.now().month)
     date = int(datetime.now().day)
+    speak("and today is")
     speak(date)
     speak(month)
     speak(year)
@@ -26,9 +28,7 @@ def date():
 
 def wishme():
     speak("Welcome Back Sir!")
-    speak("Its")
     time()
-    speak("and today is")
     date()
     hour = datetime.now().hour
     if hour >= 6 and hour < 12:
@@ -64,3 +64,6 @@ if __name__ == "__main__":
     wishme()
     while True:
         query = takeCommand().lower()
+
+        if 'time' in query:
+            time()
