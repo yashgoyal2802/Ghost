@@ -62,6 +62,15 @@ def takeCommand():
     return query
 
 
+def sendEmail(to, content):
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.ehlo()
+    server.starttls()
+    server.login("abc@gmail.com", "123")
+    server.sendmail("abc@gmail.com", to, content)
+    server.close()
+
+
 if __name__ == "__main__":
     wishme()
     while True:
@@ -79,6 +88,17 @@ if __name__ == "__main__":
             result = wikipedia.summary(query, sentences=2)
             print(result)
             speak(result)
+
+        elif "send email" in query:
+            try:
+                speak("What should I say ?")
+                content = takeCommand()
+                to = "xyz@gmail.com"
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Unable to send teh Email")
 
         elif 'offline' in query:
             quit()
