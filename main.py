@@ -58,7 +58,7 @@ def takeCommand():
         print(query)
     except Exception as e:
         print(e)
-        speak("Say that Agai please")
+        speak("Say that Again please")
         return "None"
     return query
 
@@ -73,7 +73,7 @@ def sendEmail(to, content):
 
 
 if __name__ == "__main__":
-    wishme()
+    # wishme()
     while True:
         query = takeCommand().lower()
 
@@ -90,8 +90,11 @@ if __name__ == "__main__":
             print(result)
             speak(result)
 
-        elif "search in chrome" in query:
+        elif "search in firefox" in query:
             speak("What should i search sir ?")
+            firefoxpath = "C:/Program Files/Mozilla Firefox/firefox.exe %s"
+            search = takeCommand().lower()
+            wb.get(firefoxpath).open_new_tab(search+'.com')
 
         elif "send email" in query:
             try:
