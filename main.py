@@ -3,6 +3,7 @@ from datetime import datetime
 import speech_recognition as sr
 import wikipedia
 import smtplib
+import webbrowser as wb
 
 engine = pyttsx3.init()
 
@@ -88,6 +89,9 @@ if __name__ == "__main__":
             result = wikipedia.summary(query, sentences=2)
             print(result)
             speak(result)
+
+        elif "search in chrome" in query:
+            speak("What should i search sir ?")
 
         elif "send email" in query:
             try:
