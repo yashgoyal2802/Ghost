@@ -1,5 +1,6 @@
 import pyttsx3
 from datetime import datetime
+import speech_recognition as sr
 
 engine = pyttsx3.init()
 
@@ -57,3 +58,9 @@ def takeCommand():
         speak("Say that Agai please")
         return "None"
     return query
+
+
+if __name__ == "__main__":
+    wishme()
+    while True:
+        query = takeCommand().lower()
